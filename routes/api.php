@@ -24,3 +24,6 @@ Route::controller(RegisterController::class)->group(function(){
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/w', function () {
+    return view('welcome');
+});
