@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/w', function () {
     return view('welcome');
 });
+
+Route::middleware('auth:sanctum')->get('/day/{theDay}', [DayController::class, 'get']);
+Route::middleware('auth:sanctum')->get('/week/{theDay}', [DayController::class, 'getWeek']);
+Route::middleware('auth:sanctum')->post('/day', [DayController::class, 'saveDay']);
