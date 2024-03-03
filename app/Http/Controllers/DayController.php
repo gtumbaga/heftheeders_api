@@ -69,7 +69,7 @@ class DayController extends Controller
             //$day = $user->day()->whereDate('this_day', '=',  $theDay)->get();
 
             $theStart = strtotime($theFirstDay);
-            $theEnd = $date = strtotime("+7 day", $theStart);
+            $theEnd = $date = strtotime("+6 day", $theStart);
             $theLastDay = date('Y-m-d', $theEnd);
 
             $day = $user->day()
@@ -81,7 +81,7 @@ class DayController extends Controller
                 'success' => true,
                 'start' => $theFirstDay,
                 'end' => $theLastDay,
-                'day' => $day,
+                'days' => $day,
             ], 200);
         } else {
             return response()->json([
